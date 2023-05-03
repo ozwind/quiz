@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="data.js"></script>
+    <script src="quiz.js"></script>
+    <script>
+        $(function() {
+            init();
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="select">
+        <div id="quizDiv">
+            <div>Select Quiz:</div>
+            <select id="selectQuiz">
+                <option value="0">Capital of state</option>
+                <option value="1">State given city</option>
+                <option value="2">Country given flag</option>
+                <option value="3">Flag given country</option>
+            </select>
+        </div>
+        <div id="limitDiv">
+            <div>Questions:</div>
+            <select id="questionLimit"></select>
+        </div>
+        <button id="start">Start</button>
+    </div>
+    <div id="quiz">
+        <img id='image'>
+        <div id="question"></div>
+        <div id="options"></div>
+        <button id="cancel">Cancel</button>
+        <button id="next">Next</button>
+    </div>
+    <div id="results">
+        <div id="score"></div>
+        <div id="incorrect"></div>
+        <button id="continue">Continue</button>
+    </div>
+</body>
+
+</html>
