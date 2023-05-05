@@ -1,6 +1,5 @@
 let currentQuestion = 0;
 let score = 0;
-const quizes = [quizCapital, quizState, quizCountryGivenFlag, quizFlagOfCountry];
 var quizData = quizes[0];
 var incorrect = [];
 
@@ -9,6 +8,7 @@ function init() {
     $("#cancel").on("click", reset);
     $("#continue").on("click", reset);
     $("#start").on("click", startQuiz);
+    initData(quizWorldCapital);
     initData(quizCapital);
     initData(quizState);
     initData(quizCountryGivenFlag);
@@ -67,7 +67,7 @@ function showQuestion(questionIndex) {
     var index = questionIndex ? questionIndex : currentQuestion;
     const qData = quizData[index];
     var question;
-    if (quizData == quizCapital) {
+    if (quizData == quizCapital || quizData == quizWorldCapital) {
         question = 'What is the capital of ' + qData.question + '?';
     }
     else if (quizData == quizState) {
@@ -126,7 +126,7 @@ function getNextQuestion() {
     else {
         //alert("Correct answer is " + qData.answer);
         var item = {};
-        if (quizData == quizCapital) {
+        if (quizData == quizCapital || quizData == quizWorldCapital) {
             item.info = answer + " is not the capital of " + qData.question;
         }
         else if (quizData == quizState) {
