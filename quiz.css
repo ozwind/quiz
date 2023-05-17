@@ -34,7 +34,8 @@ button:hover {
 }
 
 #results {
-    padding-left: 10px;
+    background-color: #f0f0f0;
+    padding: 10px;
 }
 
 #start {
@@ -45,10 +46,6 @@ button:hover {
 
 #cancel {
     margin-right: 10px;
-}
-
-#score {
-    margin-top: 10px;
 }
 
 #options div {
@@ -83,9 +80,9 @@ button:hover {
 #incorrect div {
     display: flex;
     align-items: center;
+    margin-top: 10px;
 }
 
 #incorrect img {
-    margin-top: 10px;
     margin-right: 10px;
 }

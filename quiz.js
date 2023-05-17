@@ -1,105 +1,150 @@
-let currentQuestion = 0;
 let score = 0;
-var quizData = quizes[0];
-var incorrect = [];
+let incorrect = [];
+let currentQuestion = 0;
+var quizData = [];
 
 function init() {
-    $("#next").on("click", getNextQuestion);
-    $("#cancel").on("click", reset);
-    $("#continue").on("click", reset);
-    $("#start").on("click", startQuiz);
-    initData(quizWorldCapital);
-    initData(quizCapital);
-    initData(quizState);
-    initData(quizCountryGivenFlag);
-    initData(quizFlagOfCountry);
     reset();
-    changeSelectQuiz();
+
+    for (i in questions) {    // indicate correct answer
+        questions[i].answer = questions[i].options[0];
+    }
+
+    setQuestions();
 
     $("#selectQuiz").change(function(evt) {
-        quizData = quizes[Number(evt.target.value)];
-        changeSelectQuiz();
+        setQuestions();
+        $("*").blur(); // remove keyboard focus
     });
+
+    $("#start").on("click", startQuiz);
+    $("#cancel").on("click", reset);
+    $("#continue").on("click", reset);
+    $("#next").on("click", getNextQuestion);
 }
 
-function initData(data) {
-    for (i in data) {
-        if (data[i].flags) {
-            data[i].options = [];
-            for (j in data[i].flags) {
-                data[i].options.push(toFlagUrl(data[i].flags[j]));
-            }                
-        }
-
-        data[i].answer = data[i].options[0];
-
-        if (data[i].flag) {
-            data[i].image = toFlagUrl(data[i].flag);
-        }
-    }
+function reset() {
+    currentQuestion = 0;
+    score = 0;
+    incorrect = [];
+    $("#quiz").hide();
+    $("#results").hide();
+    $("#select").show();
 }
 
-function changeSelectQuiz() {
+function setQuestions() {
     var limit = $('#questionLimit');
     limit.empty();
 
-    for (var i = 1; i <= quizData.length; i++) {
-        var option = $('<option></option>');
-        option.attr('value', i);
-        option.text(i);
-        limit.append(option);
+    var quiz = $('#selectQuiz').val();
+    quizData = [];
+
+    for (i in questions) {
+        var question = questions[i];
+        if (quiz === 'all') {      // All
+            quizData.push(question);
+        }
+        else if (quiz === 'worldCapitals' && question.capitalByCountry) {
+            quizData.push(question);
+        }
+        else if (quiz === 'stateCapitals' && question.capitalByState) {
+            quizData.push(question);
+        }
+        else if (quiz === 'usCities' && question.stateByCity) {
+            quizData.push(question);
+        }
+        else if (quiz === 'worldFlags' && (question.countryByFlag || question.flagByCountry)) {
+            quizData.push(question);
+        }
+        else if (quiz === 'movies' && (question.movieByPhrase || question.movieByDirector)) {
+            quizData.push(question);
+        }
     }
 
-    limit.val(quizData.length);
+    for (var i = 1; i <= quizData.length; i++) {
+        if (i < 6 || (i % 10 == 0 && i < 50) || (i % 50 == 0) || i == quizData.length) {
+            var option = $('<option></option>');
+            option.attr('value', i);
+            option.text(i);
+            limit.append(option);
+        }
+    }
+
+    if (quizData.length < 10) {
+        limit.val(quizData.length);
+    }
+    else {
+        limit.val(10);
+    }
+
     incorrect = [];
     document.title = $("#selectQuiz").find(":selected").text();
 }
 
-function getLimit() {
-    return Number($('#questionLimit').val());
+function startQuiz() {
+    shuffleArray(quizData);
+    showQuestion();
 }
 
 function toFlagUrl(name) {
     return "https://flagpedia.net/data/flags/h80/" + name + ".webp";
 }
 
-function showQuestion(questionIndex) {
-    var index = questionIndex ? questionIndex : currentQuestion;
-    const qData = quizData[index];
-    var question;
-    if (quizData == quizCapital || quizData == quizWorldCapital) {
-        question = 'What is the capital of ' + qData.question + '?';
+function getLimit() {
+    return Number($('#questionLimit').val());
+}
+
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+}
+
+function showQuestion() {
+    var question = quizData[currentQuestion];
+    var text;
+    var $image = $('#image');
+
+    $image.removeAttr('src');
+
+    if (question.capitalByCountry) {
+        text = 'What is the capital of ' + question.capitalByCountry + '?';
     }
-    else if (quizData == quizState) {
-        question = qData.question + ' is in which state?';
+    else if (question.capitalByState) {
+        text = 'What is the capital of ' + question.capitalByState + '?';
     }
-    else if (quizData == quizCountryGivenFlag) {
-        question = 'The flag is from which country?'
+    else if (question.stateByCity) {
+        text = question.stateByCity + ' is in which state?';
     }
-    else if (quizData == quizFlagOfCountry) {
-        question = 'Which flag is from ' + qData.question + '?';
+    else if (question.countryByFlag) {
+        text = 'The flag is from which country?';
+        $image.attr('src', toFlagUrl(question.countryByFlag));
+    }
+    else if (question.flagByCountry) {
+        text = 'Which flag is from ' + question.flagByCountry + '?';
+    }
+    else if (question.movieByPhrase) {
+        text = 'Which movie is known for the phrase: "' + question.movieByPhrase + '"?';
+    }
+    else if (question.movieByDirector) {
+        text = 'Which movie was directed by "' + question.movieByDirector + '"?';
     }
     
-    var image = $('#image');
-    if (qData.image) {
-        image.attr('src', qData.image);
-    }
-    else {
-        image.removeAttr('src');
-    }
     $("#select").hide();
     $("#results").hide();
-    $("#question").text((index + 1) + ' of ' + getLimit() + ') ' + question);
+    $("#question").text((currentQuestion + 1) + ' of ' + getLimit() + ') ' + text);
     $("#options div").remove();
+    
+    shuffleArray(question.options);
 
-    shuffleArray(qData.options);
-
-    for (var i = 0; i < qData.options.length; i++) {
+    for (var i = 0; i < question.options.length; i++) {
         var div = $("<div></div>");
         var radio = $("<input type='radio' name='option' value='" + i + "'>");
-        var item = quizData == quizFlagOfCountry
-                 ? $("<img>").attr("src", qData.options[i])
-                 : $("<label></label>").text(qData.options[i]);
+        var item = question.flagByCountry
+            ? $("<img>").attr("src", toFlagUrl(question.options[i]))
+            : $("<label></label>").text(question.options[i]);
+
         div.append(radio, item);
         $("#options").append(div);
     }
@@ -113,37 +158,47 @@ function resetOptions() {
 
 function getNextQuestion() {
     const selectedOption = $('input[name="option"]:checked').val();
-    const qData = quizData[currentQuestion];
+    const question = quizData[currentQuestion];
 
     if (selectedOption === undefined) {
         alert("Please select an option.");
         return;
     }
-    var answer = qData.options[Number(selectedOption)];
-    if (answer === qData.answer) {
+
+    const choice = question.options[Number(selectedOption)];
+
+    if (choice === question.answer) {
         score++;
     }
     else {
-        //alert("Correct answer is " + qData.answer);
         var item = {};
-        if (quizData == quizCapital || quizData == quizWorldCapital) {
-            item.info = answer + " is not the capital of " + qData.question;
+        if (question.capitalByCountry) {
+            item.info = choice + " is not the capital of " + question.capitalByCountry;
         }
-        else if (quizData == quizState) {
-            item.info = qData.question + " is not in the state of " + answer;
+        else if (question.capitalByState) {
+            item.info = choice + " is not the capital of " + question.capitalByState;
         }
-        else if (quizData == quizCountryGivenFlag) {
-            item.info = "is not the flag of " + answer;
-            item.flag = toFlagUrl(qData.flag);
+        else if (question.stateByCity) {
+            item.info = question.stateByCity + " is not in the state of " + choice;
         }
-        else if (quizData == quizFlagOfCountry) {
-            item.info = "is not the flag of " + qData.question;
-            item.flag = answer;
+        else if (question.countryByFlag) {
+            item.info = "is not the flag of " + choice;
+            item.flag = toFlagUrl(question.countryByFlag);
         }
-        if (Object.keys(item).length > 0) {
-            incorrect.push(item);
+        else if (question.flagByCountry) {
+            item.info = "is not the flag of " + question.flagByCountry;
+            item.flag = toFlagUrl(choice);
         }
+        else if (question.movieByPhrase) {
+            item.info = "The movie " + choice + " is not known by the phrase: \""
+                + question.movieByPhrase + "\"";
+        }
+        else if (question.movieByDirector) {
+            item.info = "The movie " + choice + " was not directed by " + question.movieByDirector;
+        }
+        incorrect.push(item);
     }
+
     resetOptions();
     currentQuestion++;
 
@@ -152,29 +207,6 @@ function getNextQuestion() {
     } else {
         showQuestion(currentQuestion);
     }
-}
-
-function reset() {
-    currentQuestion = 0;
-    score = 0;
-    incorrect = [];
-    $("#quiz").hide();
-    $("#results").hide();
-    $("#select").show();
-}
-
-function startQuiz() {
-    var index = $('#selectQuiz').val();
-    quizData = quizes[index];
-    shuffleArray(quizData);
-    showQuestion();
-}
-
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
-  }
 }
 
 function showResults() {
@@ -194,7 +226,7 @@ function showResults() {
         }
         if (item.info) {
             var elem = $("<div></div>");
-            var info = $("<p></p>").text(item.info);
+            var info = $("<div></div>").text(item.info);
             if (flag) {
                 elem.append(flag);
             }

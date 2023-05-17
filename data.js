@@ -1,746 +1,860 @@
-const quizWorldCapital = [{  // https://geographyfieldwork.com/WorldCapitalCities.htm
-    question: "Afghanistan",
+const questions = [{ // https://flagpedia.net/index
+    capitalByCountry: "Afghanistan",
     options: ["Kabul", "Kandahar ", "Herat", "Mazar-i-Sharif"]
 },
 {
-    question: "Argentina",
+    capitalByCountry: "Argentina",
     options: ["Buenos Aires", "Córdoba", "Rosario", "Mendoza"]
 },
 {
-    question: "Australia",
+    capitalByCountry: "Australia",
     options: ["Canberra", "Sydney", "Melbourne", "Adelaide"]
 },
 {
-    question: "Austria",
+    capitalByCountry: "Austria",
     options: ["Vienna", "Innsbruck", "Salzburg", "Graz"]
 },
 {
-    question: "Bahamas",
+    capitalByCountry: "Bahamas",
     options: ["Nassau", "Freeport", "West End", "Coopers Town"]
 },
 {
-    question: "Belgium",
+    capitalByCountry: "Belgium",
     options: ["Brussels", "Antwerp", "Ghent", "Mons"]
 },
 {
-    question: "Belize",
+    capitalByCountry: "Belize",
     options: ["Belmopan", "Belize City", "La Democracia", "Santa Cruz"]
 },
 {
-    question: "Brazil",
+    capitalByCountry: "Brazil",
     options: ["Brasilia", "Rio de Janeiro", "São Paulo", "Curitiba"]
 },
 {
-    question: "Bulgaria",
+    capitalByCountry: "Bulgaria",
     options: ["Sofia", "Plovdiv", "Stara Zagora", "Varna"]
 },
 {
-    question: "Cambodia",
+    capitalByCountry: "Cambodia",
     options: ["Phnom Penh", "Krong Siem Reap", "Krong Battambang", "Siem Pang"]
 },
 {
-    question: "Canada",
+    capitalByCountry: "Canada",
     options: ["Ottawa", "Quebec", "Toronoto", "Vancouver"]
 },
 {
-    question: "Chile",
+    capitalByCountry: "Chile",
     options: ["Santiago", "Concepcion", "Puerto Montt", "Antofagasta"]
 },
 {
-    question: "China",
+    capitalByCountry: "China",
     options: ["Beijing", "Shanghai", "Shenzhen", "Chengdu"]
 },
 {
-    question: "Colombia",
+    capitalByCountry: "Colombia",
     options: ["Bogota", "Medellín", "Barranquilla", "Cali"]
 },
 {
-    question: "Costa Rica",
+    capitalByCountry: "Costa Rica",
     options: ["San Jose", "San Ramon", "Playa Hermosa", "Cartago"]
 },
 {
-    question: "Cuba",
+    capitalByCountry: "Cuba",
     options: ["Havana", "Santa Clara", "Matanzas", "Santiago de Cuba"]
 },
 {
-    question: "Denmark",
+    capitalByCountry: "Denmark",
     options: ["Copenhagen", "Esbjerg", "Aalborg", "Fredericia"]
 },
 {
-    question: "Ecuador",
+    capitalByCountry: "Ecuador",
     options: ["Quito", "Guayaquil", "Santo Domingo", "Manta"]
 },
 {
-    question: "Egypt",
+    capitalByCountry: "Egypt",
     options: ["Cairo", "Alexandria", "New Cairo City", "Aswan"]
 },
 {
-    question: "England",
+    capitalByCountry: "England",
     options: ["London", "Birmingham", "Liverpool", "Bristol"]
 },
 {
-    question: "Ethiopia",
+    capitalByCountry: "Ethiopia",
     options: ["Addis Ababa", "Bahir Dar", "Hawassa", "Mek'ele"]
 },
 {
-    question: "Finland",
+    capitalByCountry: "Finland",
     options: ["Helsinki", "Turku", "Oulu", "Tampere"]
 },
 {
-    question: "France",
+    capitalByCountry: "France",
     options: ["Paris", "Nice", "Marseille", "Versailles"]
 },
 {
-    question: "Germany",
+    capitalByCountry: "Germany",
     options: ["Berlin", "Frankfurt", "Hamburg", "Munich"]
 },
 {
-    question: "Greece",
+    capitalByCountry: "Greece",
     options: ["Athens", "Thessaloniki", "Patras", "Alexandroupoli"]
 },
 {
-    question: "Honduras",
+    capitalByCountry: "Honduras",
     options: ["Tegucigalpa", "San Pedro Sula", "La Ceiba", "El Progreso"]
 },
 {
-    question: "Hungary",
+    capitalByCountry: "Hungary",
     options: ["Budapest", "Miskolc", "Kecskemét", "Székesfehérvár"]
 },
 {
-    question: "Iceland",
+    capitalByCountry: "Iceland",
     options: ["Reykjavik", "Hella", "Reykholt", "Kálfafell"]
 },
 {
-    question: "India",
+    capitalByCountry: "India",
     options: ["New Delhi", "Mumbai", "Bombay", "Kanpur"]
 },
 {
-    question: "Iran",
+    capitalByCountry: "Iran",
     options: ["Tehran", "Isfahan", "Mashhad", "Tabriz"]
 },
 {
-    question: "Iraq",
+    capitalByCountry: "Iraq",
     options: ["Baghdad", "Erbil", "Basrah", "Karbala"]
 },
 {
-    question: "Ireland",
+    capitalByCountry: "Ireland",
     options: ["Dublin", "Galway", "Waterford", "Limerick"]
 },
 {
-    question: "Italy",
+    capitalByCountry: "Italy",
     options: ["Rome", "Milan", "Venice", "Bologna"]
 },
 {
-    question: "Jamaica",
+    capitalByCountry: "Jamaica",
     options: ["Kingston", "Portmore", "Santa Cruz", "Mandeville"]
 },
 {
-    question: "Japan",
+    capitalByCountry: "Japan",
     options: ["Tokyo", "Osaka", "Sapporo", "Hiroshima"]
 },
 {
-    question: "Jordan",
+    capitalByCountry: "Jordan",
     options: ["Amman", "Irbid", "Madaba", "Azraq"]
 },
 {
-    question: "Kenya",
+    capitalByCountry: "Kenya",
     options: ["Nairobi", "Mombasa", "Nakuru", "Kisumu"]
 },
 {
-    question: "Laos",
+    capitalByCountry: "Laos",
     options: ["Vientiane", "Pakse", "Salavan", "Pak Beng"]
 },
 {
-    question: "Libya",
+    capitalByCountry: "Libya",
     options: ["Tripoli", "Misrata", "Benghazi", "Sirte"]
 },
 {
-    question: "Mongolia",
+    capitalByCountry: "Mongolia",
     options: ["Ulaanbaatar", "Sainshand", "Bayanbulag", "Ulaangom"]
 },
 {
-    question: "Morocco",
+    capitalByCountry: "Morocco",
     options: ["Rabat", "Marrakesh", "Casablanca", "Tangier"]
 },
 {
-    question: "Nepal",
+    capitalByCountry: "Nepal",
     options: ["Kathmandu", "Lalitpur", "Biratnagar", "Pokhara"]
 },
 {
-    question: "New Zealand",
+    capitalByCountry: "New Zealand",
     options: ["Wellington", "Auckland", "Christchurch", "Queenstown"]
 },
 {
-    question: "Nicaragua",
+    capitalByCountry: "Nicaragua",
     options: ["Managua", "Chinandega", "León", "Esteli"]
 },
 {
-    question: "Nigeria",
+    capitalByCountry: "Nigeria",
     options: ["Abuja", "Lagos", "Ibadan", "Kano"]
 },
 {
-    question: "North Korea",
+    capitalByCountry: "North Korea",
     options: ["Pyongyang", "Nampo", "Chongjin", "Hamhung"]
 },
 {
-    question: "Norway",
+    capitalByCountry: "Norway",
     options: ["Oslo", "Bergen", "Trondheim", "Stavanger"]
 },
 {
-    question: "Pakistan",
+    capitalByCountry: "Pakistan",
     options: ["Islamabad", "Karachi", "Multan", "Quetta"]
 },
 {
-    question: "Paraguay",
+    capitalByCountry: "Paraguay",
     options: ["Asuncion", "Encarnacion", "Concepción", "Loma Plata"]
 },
 {
-    question: "Peru",
+    capitalByCountry: "Peru",
     options: ["Lima", "Cusco", "Tarapoto", "Arequipa"]
 },
 {
-    question: "Philippines",
+    capitalByCountry: "Philippines",
     options: ["Manila", "Angeles", "Baguio", "Davao City"]
 },
 {
-    question: "Poland",
+    capitalByCountry: "Poland",
     options: ["Warsaw", "Wrocław", "Gdańsk", "Katowice"]
 },
 {
-    question: "Portugal",
+    capitalByCountry: "Portugal",
     options: ["Lisbon", "Porto", "Coimbra", "Setúbal"]
 },
 {
-    question: "Qatar",
+    capitalByCountry: "Qatar",
     options: ["Doha", "Ar-Rayyan", "Simsimah", "Lusail"]
 },
 {
-    question: "Romania",
+    capitalByCountry: "Romania",
     options: ["Bucharest", "Cluj-Napoca", "Galați", "Brașov"]
 },
 {
-    question: "Russia",
+    capitalByCountry: "Russia",
     options: ["Moscow", "St Petersburg", "Volgograd", "Saratov"]
 },
 {
-    question: "Saudi Arabia",
+    capitalByCountry: "Saudi Arabia",
     options: ["Riyadh", "Jeddah", "Mecca", "Taif"]
 },
 {
-    question: "Serbia",
+    capitalByCountry: "Serbia",
     options: ["Belgrade", "Kragujevac", "Novi Sad", "Subotica"]
 },
 {
-    question: "Somalia",
+    capitalByCountry: "Somalia",
     options: ["Mogadishu", "Bosaso", "Kismayo", "Luuq"]
 },
 {
-    question: "South Korea",
+    capitalByCountry: "South Korea",
     options: ["Seoul", "Incheon", "Busan", "Daegu"]
 },
 {
-    question: "Spain",
+    capitalByCountry: "Spain",
     options: ["Madrid", "Barcelona", "Valencia", "Zaragoza"]
 },
 {
-    question: "Sudan",
+    capitalByCountry: "Sudan",
     options: ["Khartoum", "Port Sudan", "Karima", "Kassala"]
 },
 {
-    question: "Sweden",
+    capitalByCountry: "Sweden",
     options: ["Stockholm", "Gothenburg", "Malmö", "Uppsala"]
 },
 {
-    question: "Switzerland",
+    capitalByCountry: "Switzerland",
     options: ["Bern", "Zürich", "Geneva", "Lucerne"]
 },
 {
-    question: "Syria",
+    capitalByCountry: "Syria",
     options: ["Damascus", "Aleppo", "Homs", "Idlib"]
 },
 {
-    question: "Thailand",
+    capitalByCountry: "Thailand",
     options: ["Bangkok", "Pattaya City", "Chiang Mai", "Rayong"]
 },
 {
-    question: "Tunisia",
+    capitalByCountry: "Tunisia",
     options: ["Tunis", "Sfax", "Sousse", "Monastir"]
 },
 {
-    question: "Uganda",
+    capitalByCountry: "Uganda",
     options: ["Kampala", "Mbale", "Gulu", "Masaka"]
 },
 {
-    question: "Ukraine",
+    capitalByCountry: "Ukraine",
     options: ["Kyiv", "Lviv", "Kharkiv", "Poltava"]
 },
 {
-    question: "United Arab Emirates",
+    capitalByCountry: "United Arab Emirates",
     options: ["Abu Dhabi", "Dubai", "Al Ain", "Ras Al-Khaimah"]
 },
 {
-    question: "Uruguay",
+    capitalByCountry: "Uruguay",
     options: ["Montevideo", "Santa Lucia", "Rocha", "Morato"]
 },
 {
-    question: "Uzbekistan",
+    capitalByCountry: "Uzbekistan",
     options: ["Tashkent", "Samarkand", "Nukus", "Zarafshan"]
 },
 {
-    question: "Venezuela",
+    capitalByCountry: "Venezuela",
     options: ["Caracas", "Valencia", "Barquisimeto", "Maracaibo"]
 },
 {
-    question: "Vietnam",
+    capitalByCountry: "Vietnam",
     options: ["Hanoi", "Saigon", "Ho Chi Minh City", "Da Nang"]
 },
 {
-    question: "Zambia",
+    capitalByCountry: "Zambia",
     options: ["Lusaka", "Zambezi", "Kitwe", "Kasama"]
-}];
-
-const quizCapital = [{
-    question: "Alabama",
+},
+{
+    capitalByState: "Alabama",
     options: ["Montgomery", "Birmingham", "Mobile", "Huntsville"]
 },
 {
-    question: "Alaska",
+    capitalByState: "Alaska",
     options: ["Juneau", "Anchorage", "Fairbanks", "Seward"]
 },
 {
-    question: "Arizona",
+    capitalByState: "Arizona",
     options: ["Phoenix", "Tucson", "Flagstaff", "Yuma"]
 },
 {
-    question: "Arkansas",
+    capitalByState: "Arkansas",
     options: ["Little Rock", "Fort Smith", "Texarkana", "Clarksville"]
 },
 {
-    question: "California",
+    capitalByState: "California",
     options: ["Sacramento", "San Francisco", "Los Angeles", "San Jose"]
 },
 {
-    question: "Colorado",
+    capitalByState: "Colorado",
     options: ["Denver", "Colorado Springs", "Fort Collins", "Boulder"]
 },
 {
-    question: "Connecticut",
+    capitalByState: "Connecticut",
     options: ["Hartford", "New Haven", "Bridgeport", "Windsor"]
 },
 {
-    question: "Delaware",
+    capitalByState: "Delaware",
     options: ["Dover", "Wilmington", "Bridgeville", "Milton"]
 },
 {
-    question: "Florida",
+    capitalByState: "Florida",
     options: ["Tallahassee", "Jacksonville", "Tampa", "Miami"]
 },
 {
-    question: "Georgia",
+    capitalByState: "Georgia",
     options: ["Atlanta", "Savannah", "Macon", "Athens"]
 },
 {
-    question: "Hawaii",
+    capitalByState: "Hawaii",
     options: ["Honolulu", "Hilo", "Kailua-Kona", "Pearl Harbor"]
 },
 {
-    question: "Idaho",
+    capitalByState: "Idaho",
     options: ["Boise", "Twin Falls", "Coeur d'Alene", "Pocatello"]
 },
 {
-    question: "Illinois",
+    capitalByState: "Illinois",
     options: ["Springfield", "Chicago", "Peoria", "Rockford"]
 },
 {
-    question: "Indiana",
+    capitalByState: "Indiana",
     options: ["Indianapolis", "Fort Wayne", "Evansville", "Terre Haute"]
 },
 {
-    question: "Iowa",
+    capitalByState: "Iowa",
     options: ["Des Moines", "Cedar Rapids", "Sioux City", "Daven Port"]
 },
 {
-    question: "Kansas",
+    capitalByState: "Kansas",
     options: ["Topeka", "Kansas City", "Wichita", "Dodge City"]
 },
 {
-    question: "Kentucky",
+    capitalByState: "Kentucky",
     options: ["Frankfort", "Lexington", "Louisville", "Bowling Green"]
 },
 {
-    question: "Louisiana",
+    capitalByState: "Louisiana",
     options: ["Baton Rouge", "New Orleans", "Shreveport", "Lafayette"]
 },
 {
-    question: "Maine",
+    capitalByState: "Maine",
     options: ["Augusta", "Bangor", "Portland", "Newport"]
 },
 {
-    question: "Maryland",
+    capitalByState: "Maryland",
     options: ["Annapolis", "Baltimore", "Rockville", "Gaithersburg"]
 },
 {
-    question: "Massachusetts",
+    capitalByState: "Massachusetts",
     options: ["Boston", "Worcester", "Springfield", "Salem"]
 },
 {
-    question: "Michigan",
+    capitalByState: "Michigan",
     options: ["Lansing", "Detroit", "Grand Rapids", "Ann Arbor"]
 },
 {
-    question: "Minnesota",
+    capitalByState: "Minnesota",
     options: ["Saint Paul", "Minneapolis", "Rochester", "Duluth"]
 },
 {
-    question: "Mississippi",
+    capitalByState: "Mississippi",
     options: ["Jackson", "Tupelo", "Biloxi", "Meridian"]
 },
 {
-    question: "Missouri",
+    capitalByState: "Missouri",
     options: ["Jefferson City", "St. Louis", "Columbia", "Kansas City"]
 },
 {
-    question: "Montana",
+    capitalByState: "Montana",
     options: ["Helena", "Missoula", "Billings", "Bozeman"]
 },
 {
-    question: "Nebraska",
+    capitalByState: "Nebraska",
     options: ["Lincoln", "Omaha", "Grand Island", "Scottsbluff"]
 },
 {
-    question: "Nevada",
+    capitalByState: "Nevada",
     options: ["Carson City", "Reno", "Las Vegas", "Henderson"]
 },
 {
-    question: "New Hampshire",
+    capitalByState: "New Hampshire",
     options: ["Concord", "Manchester", "Portsmouth", "Dover"]
 },
 {
-    question: "New Jersey",
+    capitalByState: "New Jersey",
     options: ["Trenton", "Newark", "Princeton", "Morristown"]
 },
 {
-    question: "New Mexico",
+    capitalByState: "New Mexico",
     options: ["Santa Fe", "Albuquerque", "Santa Rosa", "Gallup"]
 },
 {
-    question: "New York",
+    capitalByState: "New York",
     options: ["Albany", "New York City", "Syracuse", "Rochester"]
 },
 {
-    question: "North Carolina",
+    capitalByState: "North Carolina",
     options: ["Raleigh", "Charlotte", "Fayetteville", "Durham"]
 },
 {
-    question: "North Dakota",
+    capitalByState: "North Dakota",
     options: ["Bismarck", "Fargo", "Grand Forks", "Minot"]
 },
 {
-    question: "Ohio",
+    capitalByState: "Ohio",
     options: ["Columbus", "Cleveland", "Cincinnati", "Akron"]
 },
 {
-    question: "Oklahoma",
+    capitalByState: "Oklahoma",
     options: ["Oklahoma City", "Tulsa", "Moore", "Stillwater"]
 },
 {
-    question: "Oregon",
+    capitalByState: "Oregon",
     options: ["Salem", "Portland", "Eugene", "Medford"]
 },
 {
-    question: "Pennsylvania",
+    capitalByState: "Pennsylvania",
     options: ["Harrisburg", "Philadelphia", "Pittsburgh", "Allentown"]
 },
 {
-    question: "Rhode Island",
+    capitalByState: "Rhode Island",
     options: ["Providence", "Portsmouth", "Bristol", "Warren"]
 },
 {
-    question: "South Carolina",
+    capitalByState: "South Carolina",
     options: ["Columbia", "Charlestown", "Myrtle Beach", "Spartanburg"]
 },
 {
-    question: "South Dakota",
+    capitalByState: "South Dakota",
     options: ["Pierre", "Sioux Falls", "Rapid City", "Watertown"]
 },
 {
-    question: "Tennessee",
+    capitalByState: "Tennessee",
     options: ["Nashville", "Memphis", "Knoxville", "Chattanooga"]
 },
 {
-    question: "Texas",
+    capitalByState: "Texas",
     options: ["Austin", "Dallas", "Houston", "San Antonio"]
 },
 {
-    question: "Utah",
+    capitalByState: "Utah",
     options: ["Salt Lake City", "Provo", "Ogden", "St. George"]
 },
 {
-    question: "Vermont",
+    capitalByState: "Vermont",
     options: ["Montpelier", "Burligton", "Manchester", "St. Johnsbury"]
 },
 {
-    question: "Virginia",
+    capitalByState: "Virginia",
     options: ["Richmond", "Norfolk", "Newport News", "Lynchburg"]
 },
 {
-    question: "Washington",
+    capitalByState: "Washington",
     options: ["Olympia", "Seattle", "Spokane", "Tacoma"]
 },
 {
-    question: "West Virginia",
+    capitalByState: "West Virginia",
     options: ["Charleston", "Sutton", "Beckley", "Clarksburg"]
 },
 {
-    question: "Wisconsin",
+    capitalByState: "Wisconsin",
     options: ["Madison", "Milwaukee", "Green Bay", "Eau Claire"]
 },
 {
-    question: "Wyoming",
+    capitalByState: "Wyoming",
     options: ["Cheyenne", "Casper", "Jackson", "Sheridan"]
-}];
-
-const quizState = [{
-    question: "HuntsVille",
+},
+{
+    stateByCity: "HuntsVille",
     options: ["Alabama", "Mississippi", "Georgia", "Tennessee"]
 },
 {
-    question: "Seward",
+    stateByCity: "Seward",
     options: ["Alaska", "New Jersey", "Montana", "Oregon"]
 },
 {
-    question: "Prescott",
+    stateByCity: "Prescott",
     options: ["Arizona", "Utah", "Idaho", "Nevada"]
 },
 {
-    question: "Texarkana",
+    stateByCity: "Texarkana",
     options: ["Arkansas", "Texas", "Oklahoma", "Louisiana"]
 },
 {
-    question: "Eureka",
+    stateByCity: "Eureka",
     options: ["California", "Oregon", "Washington", "Idaho"]
 },
 {
-    question: "Pueblo",
+    stateByCity: "Pueblo",
     options: ["Colorado", "New Mexico", "Arizona", "Texas"]
 },
 {
-    question: "Coeur d'Alene",
+    stateByCity: "Coeur d'Alene",
     options: ["Idaho", "Washington", "Iowa", "Wisconsin"]
 },
 {
-    question: "Bozeman",
+    stateByCity: "Bozeman",
     options: ["Montana", "Illinois", "Indiana", "Ohio"]
 },
 {
-    question: "Minot",
+    stateByCity: "Minot",
     options: ["North Dakota", "Kansas", "Missouri", "Oklahoma"]
 },
 {
-    question: "St. Cloud",
+    stateByCity: "St. Cloud",
     options: ["Minnesota", "Michigan", "Vermont", "Kentucky"]
 },
 {
-    question: "Cedar Rapids",
+    stateByCity: "Cedar Rapids",
     options: ["Iowa", "Kansas", "Georgia", "Virginia"]
 },
 {
-    question: "Champaign",
+    stateByCity: "Champaign",
     options: ["Illinois", "Ohio", "Indiana", "Tennessee"]
 },
 {
-    question: "Lawrence",
+    stateByCity: "Lawrence",
     options: ["Kansas", "Massachusetts", "Missouri", "New York"]
 },
 {
-    question: "Eugene",
+    stateByCity: "Eugene",
     options: ["Oregon", "Alabama", "Nevada", "Maine"]
 },
 {
-    question: "New Haven",
+    stateByCity: "New Haven",
     options: ["Connecticut", "Pennsylvania", "Michigan", "Oregon"]
 },
 {
-    question: "Ann Arbor",
+    stateByCity: "Ann Arbor",
     options: ["Michigan", "Minnesota", "Wisconsin", "Ohio"]
 },
 {
-    question: "Bowling Green",
+    stateByCity: "Bowling Green",
     options: ["Kentucky", "Tennessee", "Wisconsin", "South Dakota"]
 },
 {
-    question: "Lynchburg",
+    stateByCity: "Lynchburg",
     options: ["Virginia", "South Carolina", "Alabama", "Louisiana"]
 },
 {
-    question: "Augusta",
+    stateByCity: "Augusta",
     options: ["Georgia", "Florida", "Alabama", "Tennessee"]
 },
 {
-    question: "Casper",
+    stateByCity: "Casper",
     options: ["Wyoming", "Idaho", "Nevada", "Arizona"]
-}];
-
-const quizCountryGivenFlag = [{ // https://flagpedia.net/index
-    flag: "br",
+},
+{ 
+    countryByFlag: "br",
     options: ["Brazil", "Panama", "Argentina", "Mexico"]
 },
 {
-    flag: "de",
+    countryByFlag: "de",
     options: ["Germany", "France", "Luxembourg", "Italy"]
 },
 {
-    flag: "fr",
+    countryByFlag: "fr",
     options: ["France", "Germany", "Ireland", "Italy"]
 },
 {
-    flag: "au",
+    countryByFlag: "au",
     options: ["Australia", "Cook Islands", "United Kingdom", "New Zealand"]
 },
 {
-    flag: "at",
+    countryByFlag: "at",
     options: ["Austria", "Bolivia", "Bulgaria", "Hungary"]
 },
 {
-    flag: "es",
+    countryByFlag: "es",
     options: ["Spain", "Portugal", "Paraguay", "Brazil"]
 },
 {
-    flag: "ru",
+    countryByFlag: "ru",
     options: ["Russia", "Austria", "Bulgaria", "Germany"]
 },
 {
-    flag: "fi",
+    countryByFlag: "fi",
     options: ["Finland", "Iceland", "Norway", "Sweden"]
 },
 {
-    flag: "za",
+    countryByFlag: "za",
     options: ["South Africa", "Zimbabwe", "Sudan", "Mozambique"]
 },
 {
-    flag: "mx",
+    countryByFlag: "mx",
     options: ["Mexico", "Italy", "Peru", "Romania"]
 },
 {
-    flag: "cr",
+    countryByFlag: "cr",
     options: ["Costa Rica", "Nicaragua", "Paraguay", "Ecuador"]
 },
 {
-    flag: "cu",
+    countryByFlag: "cu",
     options: ["Cuba", "Guyana", "Jordan", "Sudan"]
 },
 {
-    flag: "iq",
+    countryByFlag: "iq",
     options: ["Iraq", "Iran", "Afghanistan", "Paktistan"]
 },
 {
-    flag: "kr",
+    countryByFlag: "kr",
     options: ["South Korea", "Japan", "North Korea", "Philippines"]
 },
 {
-    flag: "cn",
+    countryByFlag: "cn",
     options: ["China", "Russia", "Vietnam", "Laos"]
 },
 {
-    flag: "id",
+    countryByFlag: "id",
     options: ["Indonesia", "India", "Monaco", "Poland"]
 },
 {
-    flag: "in",
+    countryByFlag: "in",
     options: ["India", "Iran", "Iraq", "Kuwait"]
 },
 {
-    flag: "ar",
+    countryByFlag: "ar",
     options: ["Argentina", "India", "Brazil", "Paraguay"]
 },
 {
-    flag: "ke",
+    countryByFlag: "ke",
     options: ["Kenya", "Libya", "Ghana", "Tanzania"]
 },
 {
-    flag: "ch",
+    countryByFlag: "ch",
     options: ["Switzerland", "Sweden", "Tonga", "Finland"]
+},
+{
+    flagByCountry: "France",
+    options: ["fr", "de", "it", "ru"]
+},
+{
+    flagByCountry: "Germany",
+    options: ["de", "fr", "it", "hu"]
+},
+{
+    flagByCountry: "Norway",
+    options: ["no", "is", "fi", "se"]
+},
+{
+    flagByCountry: "New Zealand",
+    options: ["nz", "gb", "au", "ck"]
+},
+{
+    flagByCountry: "Hungary",
+    options: ["hu", "at", "bo", "bg"]
+},
+{
+    flagByCountry: "Greece",
+    options: ["gr", "ga", "hn", "lr"]
+},
+{
+    flagByCountry: "Iceland",
+    options: ["is", "no", "dk", "fi"]
+},
+{
+    flagByCountry: "Malaysia",
+    options: ["my", "lr", "gr", "th"]
+},
+{
+    flagByCountry: "Taiwan",
+    options: ["tw", "ve", "uy", "sg"]
+},
+{
+    flagByCountry: "Poland",
+    options: ["pl", "pe", "at", "id"]
+},
+{
+    flagByCountry: "Ireland",
+    options: ["ie", "it", "lu", "ng"]
+},
+{
+    flagByCountry: "United Kingdom",
+    options: ["gb", "nz", "ck", "au"]
+},
+{
+    flagByCountry: "Greenland",
+    options: ["gl", "hn", "fm", "so"]
+},
+{
+    flagByCountry: "Cuba",
+    options: ["cu", "jo", "mz", "ps"]
+},
+{
+    flagByCountry: "Israel",
+    options: ["il", "kp", "iq", "dz"]
+},
+{
+    flagByCountry: "Japan",
+    options: ["jp", "bd", "gl", "vn"]
+},
+{
+    flagByCountry: "Netherlands",
+    options: ["nl", "am", "ga", "hu"]
+},
+{
+    flagByCountry: "Chile",
+    options: ["cl", "cz", "mm", "pa"]
+},
+{
+    flagByCountry: "Denmark",
+    options: ["dk", "fo", "ua", "lu"]
+},
+{
+    flagByCountry: "India",
+    options: ["in", "ir", "ar", "tj"]
+},
+{
+    movieByPhrase: "Phone home",
+    options: ["E.T.", "Gremlins", "Batman", "Home Alone"]
+},
+{
+    movieByPhrase: "I'm the king of the world",
+    options: ["Titanic", "King Kong", "The Lion King", "Toy Story"]
+},
+{
+    movieByPhrase: "Stupid is as stupid does",
+    options: ["Forrest Gump", "Home Alone", "Liar Liar", "Rain Man"]
+},
+{
+    movieByPhrase: "Why did it have to be snakes",
+    options: ["Raiders of the Lost Ark", "Crocodile Dundee", "Rambo", "Blazing Saddles"]
+},
+{
+    movieByPhrase: "Where we're going, we don't need roads",
+    options: ["Back to the Future", "The Wizard of Oz", "Smokey and the Bandit", "Airport"]
+},
+{
+    movieByPhrase: "Fat, drunk, and stupid is no way to go through life, son",
+    options: ["Animal House", "Smokey and the Bandit", "Blazing Saddles", "Airport"]
+},
+{
+    movieByPhrase: "I got gaps; you got gaps; we fill each other's gaps",
+    options: ["Rocky", "Grease", "Love Story", "Heaven Can Wait"]
+},
+{
+    movieByPhrase: "I'm a goddamn marvel of modern science",
+    options: ["One Flew Over the Cuckoo's Nest", "Superman", "Young Frankenstein", "Men in Black"]
+},
+{
+    movieByPhrase: "I love the smell of napalm in the morning",
+    options: ["Apocalypse Now", "Saving Private Ryan", "Full Metal Jacket", "Platoon"]
+},
+{
+    movieByPhrase: "It can only be attributable to human error",
+    options: ["2001", "Titanic", "Alien", "Top Gun"]
+},
+{
+    movieByPhrase: "We came, we saw, we kicked its ass",
+    options: ["Ghostbusters", "Blazing Saddles", "Airport", "Animal House"]
+},
+{
+    movieByPhrase: "I'm an excellent driver",
+    options: ["Rain Man", "Top Gun", "Smokey and the Bandit", "The Fast and the Furious"]
+},
+{
+    movieByPhrase: "I see dead people",
+    options: ["The Sixth Sense", "The Exorcist", "The Shining", "Halloween"]
+},
+{
+    movieByPhrase: "Keep the change, you filthy animal",
+    options: ["Home Alone", "Animal House", "Airplane", "Blazing Saddles"]
+},
+{
+    movieByPhrase: "To infinity and beyond",
+    options: ["Toy Story", "2001", "Interstellar", "Contact"]
+},
+{
+    movieByPhrase: "I'll be back",
+    options: ["Terminator", "Forrest Gump", "Rain Man", "Love Story"]
+},
+{
+    movieByPhrase: "Too many notes",
+    options: ["Amadeus", "The Sound of Music", "La La Land", "A Star is Born"]
+},
+{
+    movieByPhrase: "You're trying to seduce me",
+    options: ["The Graduate", "Dirty Dancing", "Love Actually", "An Affair to Remember"]
+},
+{
+    movieByPhrase: "The fall will probably kill you",
+    options: ["Butch Cassidy and the Sundance Kid", "Die Hard", "Lethal Weapon", "Speed"]
+},
+{
+    movieByPhrase: "Pay no attention to that man behind the curtain",
+    options: ["The Wizard of Oz", "A Star is Born", "Chicago", "Cabaret"]
+},
+{
+    movieByDirector: "Alfred Hitchcock",
+    options: ["The Birds", "The Dirty Dozen", "Doctor Zhivago", "The Sting"]
+},
+{
+    movieByDirector: "Steven Spielberg",
+    options: ["Saving Private Ryan", "Ghostbusters", "Ghost", "Fatal Attraction"]
+},
+{
+    movieByDirector: "Martin Scorsese",
+    options: ["Goodfellas", "Titanic", "Forrest Gump", "Armageddon"]
+},
+{
+    movieByDirector: "Stanley Kubrick",
+    options: ["A Clockwork Orange", "Back to the Future", "Top Gun", "Fatal Attraction"]
+},
+{
+    movieByDirector: "Quentin Tarantino",
+    options: ["Pulp Fiction", "The Sixth Sense", "The Fugitive", "The Dark Knight"]
+},
+{
+    movieByDirector: "Francis Ford Coppola",
+    options: ["Apocalypse Now", "The Sting", "One Flew Over the Cuckoo's Nest", "American Graffiti"]
+},
+{
+    movieByDirector: "James Cameron",
+    options: ["Titanic", "Rain Man", "Gremlins", "Rambo"]
+},
+{
+    movieByDirector: "Woody Allen",
+    options: ["Manhattan", "Taxi Driver", "Chinatown", "Lost in Translation"]
+},
+{
+    movieByDirector: "Tim Burton",
+    options: ["Beetlejuice", "E.T.", "Rain Man", "The Amityville Horror"]
+},
+{
+    movieByDirector: "George Lucas",
+    options: ["American Graffiti", "The Godfather", "Superman", "Rocky"]
 }];
-
-const quizFlagOfCountry = [{
-    question: "France",
-    flags: ["fr", "de", "it", "ru"]
-},
-{
-    question: "Germany",
-    flags: ["de", "fr", "it", "hu"]
-},
-{
-    question: "Norway",
-    flags: ["no", "is", "fi", "se"]
-},
-{
-    question: "New Zealand",
-    flags: ["nz", "gb", "au", "ck"]
-},
-{
-    question: "Hungary",
-    flags: ["hu", "at", "bo", "bg"]
-},
-{
-    question: "Greece",
-    flags: ["gr", "ga", "hn", "lr"]
-},
-{
-    question: "Iceland",
-    flags: ["is", "no", "dk", "fi"]
-},
-{
-    question: "Malaysia",
-    flags: ["my", "lr", "gr", "th"]
-},
-{
-    question: "Taiwan",
-    flags: ["tw", "ve", "uy", "sg"]
-},
-{
-    question: "Poland",
-    flags: ["pl", "pe", "at", "id"]
-},
-{
-    question: "Ireland",
-    flags: ["ie", "it", "lu", "ng"]
-},
-{
-    question: "United Kingdom",
-    flags: ["gb", "nz", "ck", "au"]
-},
-{
-    question: "Greenland",
-    flags: ["gl", "hn", "fm", "so"]
-},
-{
-    question: "Cuba",
-    flags: ["cu", "jo", "mz", "ps"]
-},
-{
-    question: "Israel",
-    flags: ["il", "kp", "iq", "dz"]
-},
-{
-    question: "Japan",
-    flags: ["jp", "bd", "gl", "vn"]
-},
-{
-    question: "Netherlands",
-    flags: ["nl", "am", "ga", "hu"]
-},
-{
-    question: "Chile",
-    flags: ["cl", "cz", "mm", "pa"]
-},
-{
-    question: "Denmark",
-    flags: ["dk", "fo", "ua", "lu"]
-},
-{
-    question: "India",
-    flags: ["in", "ir", "ar", "tj"]
-}];
-
-const quizes = [quizWorldCapital, quizCapital, quizState, quizCountryGivenFlag, quizFlagOfCountry];
